@@ -10,6 +10,9 @@ export const Child = ({ color, onClick }: ChildProps) => {
     </div>
 }
 
-export const ChildAsFunctionComponent: React.FC<ChildProps> = ({ color, onClick }) => {
-    return <div>{color}</div>
+export const ChildAsFunctionComponent: React.FC<ChildProps> = ({ color, onClick, children }) => {
+    return <div>
+        {color}
+        {children}
+    </div>
 }
