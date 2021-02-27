@@ -1,11 +1,12 @@
 import axios from 'axios';
-import { ActionType } from '../action-types';
-import { Action } from '../actions';
+import { Dispatch } from 'redux';
+import { SearchActionType } from '../action-types';
+import { SearchAction } from '../actions';
 
 export const searchRepositories = (term: string) => {
-    return async (dispatch: any) => {
+    return async (dispatch: Dispatch<SearchAction>) => {
         dispatch({
-            type: ActionType.SEARCH_REPOSITORIES,
+            type: SearchActionType.SEARCH_REPOSITORIES,
         });
 
         try {
@@ -23,12 +24,12 @@ export const searchRepositories = (term: string) => {
             });
 
             dispatch({
-                type: ActionType.SEARCH_REPOSITORIES_SUCCESS,
+                type: SearchActionType.SEARCH_REPOSITORIES_SUCCESS,
                 payload: names,
             });
         } catch (err) {
             dispatch({
-                type: ActionType.SEARCH_REPOSITORIES_ERROR,
+                type: SearchActionType.SEARCH_REPOSITORIES_ERROR,
                 payload: err.message,
             });
         }
