@@ -9,7 +9,7 @@ interface RepositoriesState {
 
 const initialState = {
     loading: false,
-    error: '',
+    error: null,
     data: [],
 };
 
